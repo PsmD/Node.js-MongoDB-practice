@@ -1,2 +1,2 @@
 # Node.js-MongoDB-practice
-diary
+Create diary app, keep updating
