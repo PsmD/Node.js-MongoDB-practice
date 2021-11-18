@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DGshop</title>
+    <style type="text/css">
+        a{text-decoration:none; color:#000000;}         
+        a:hover{color:#ff0000;}                    
+        
+        nav ul{padding-top:10px;}                     
+        nav ul li {
+           display:inline;             
+           border-left:1px solid #999;         
+           font:bold 12px Dotum;                     
+           padding:0 10px;     
+       }
+        nav ul li:first-child{border-left:none;}   
+   </style>
   </head>
   <body>
     <nav id="topMenu" >
@@ -19,12 +32,12 @@
       </nav>
       <form action="/join" method="POST">
         <div class="form-group">
-          <label>이메일</label>
+          <label>Email</label>
           <input type="text" class="form-control" name="email">
         </div>
         <div class="form-group">
-          <label>비밀번호</label>
-          <input type="text" class="form-control" name="pw">
+          <label>Password</label>
+          <input type="text" class="form-control" name="password">
         </div>
         <button type="submit" class="btn btn-outline-secondary">Submit</button>
       </form> 
