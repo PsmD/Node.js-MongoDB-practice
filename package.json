@@ -12,10 +12,14 @@
     "mongodb": "^3.6.4",
     "mongoose": "^6.0.12"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/preset-env": "^7.16.4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon --exec babel-node server.js"
   },
   "repository": {
     "type": "git",
