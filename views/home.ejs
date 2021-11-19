@@ -5,32 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DGshop</title>
-    <style type="text/css">
+    <style>
       a{text-decoration:none; color:#000000;}         
-      a:hover{color:#ff0000;}                    
-      
-      nav ul{padding-top:10px;}                     
+      a:hover{color:#ff0000;}
+      nav{
+        border-bottom:3px solid gray;
+      }      
+      nav ul{
+        display:block;
+            float: top;   
+      }                     
       nav ul li {
          display:inline;             
          border-left:1px solid #999;         
          font:bold 12px Dotum;                     
-         padding:0 10px;     
-     }
-      nav ul li:first-child{border-left:none;}   
+         padding:0 10px;
+     };
+      nav ul li:first-child{border-left:none;}
+      #dgshop{
+        font-size:45px;
+        text-align: left;
+      };
+      div{
+        border-right:3px solid gray;
+        width:200px;
+      };
  </style>
   </head>
   <body>
-    <nav id="topMenu" >
+    <nav>
        <ul>
-          <li><a class="menuLink" href="/login">로그인</a></li>
-          <li><a class="menuLink" href="/join">회원가입</a></li> 
-          <li><a class="menuLink" href="/mypage">마이 페이지</a></li>
-          <li><a class="menuLink" href="/viewed">최근 본 상품</a></li>
-          <li><a class="menuLink" href="/cart">장바구니</a></li> 
-          <li><a class="menuLink" href="/track">주문배송조회</a></li> 
-          <li><a class="menuLink" href="/cs">고객센터</a></li> 
-          
+          <li><a href="/home" id="dgshop">DGshop</a></li>
+          <li><a href="/login" class="menu">로그인</a></li>
+          <li><a href="/join" class="menu">회원가입</a></li> 
+          <li><a href="/mypage" class="menu">마이 페이지</a></li>
+          <li><a href="/viewed" class="menu">최근 본 상품</a></li>
+          <li><a href="/cart" class="menu">장바구니</a></li> 
+          <li><a href="/track" class="menu">주문배송조회</a></li> 
+          <li><a href="/cs" class="menu">고객센터</a></li> 
         </ul> 
       </nav>
+    <div>
+      <ul>
+        <li><a>상의</a></li>
+        <li><a>하의</a></li>
+        <li><a>신발</a></li>
+        <li><a>액세서리</a></li>
+        <li><a>모자</a></li>
+        <li><a>속옷</a></li>
+        <li><a>벨트</a></li>
+      </ul>
+    </div>
   </body>
 </html>
