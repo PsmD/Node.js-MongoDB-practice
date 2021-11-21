@@ -11,11 +11,18 @@ export const postJoin = async (req, res) => {
     });
   };
   
-  const usernameexists = await User.exists({ username });
-  if (usernameexists) {
+  const usernameExists = await User.exists({ username });
+  if (usernameExists) {
     return res.status(400).render("join", {
       pageTitle,
       errorMessage: '입력하신 닉네임은 이미 사용 중 입니다.',
+    });
+  };
+  const idExists = await User.exists({ id });
+  if (idExists) {
+    return res.status(400).render("join", {
+      pageTitle,
+      errorMessage: '입력하신 아이디는 이미 사용 중 입니다.',
     });
   };
     await User.create({
