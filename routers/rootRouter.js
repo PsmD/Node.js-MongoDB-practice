@@ -1,5 +1,5 @@
 import express from "express";
-import { getJoin, postJoin, cart, cs ,login, mypage, track, viewed, home } from "../controllers/userController";
+import { getJoin, postJoin, cart, cs ,getLogin, postLogin, mypage, track, viewed, home } from "../controllers/userController";
 const rootRouter = express.Router();
 
 rootRouter.get('/', home);
@@ -16,6 +16,6 @@ rootRouter.get('/cs', cs);
 
 rootRouter.route("/join").get(getJoin).post(postJoin);
 
-rootRouter.get("/login", login);
+rootRouter.route("/login").get(getLogin).post(postLogin);
 
 export default rootRouter;

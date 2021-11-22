@@ -96,7 +96,16 @@ padding-left: 70px;
       </ul>
     </div>
     <div id="img">
-<h2>쇼핑 품목 img</h2>
+      <form action="/login" method="POST">
+        <label>아이디</label>
+        <input type="text" name="id" required=true>
+        <label>비밀번호</label>
+        <input type="password" name="password" required=true>
+      <button type="submit">입력완료</button>
+      <% if(locals.errorMessage) { %>
+        <div id="img" role="alert"><%= errorMessage %></div>
+        <% } %>
+    </form> 
     </div>
   </div>
   </body>
