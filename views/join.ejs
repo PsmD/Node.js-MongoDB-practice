@@ -64,8 +64,8 @@ grid-template-columns: 150px 1fr;
 padding-top: 100px;
 padding-left: 70px;
 }
-      </style>
-  </head>
+</style>
+</head>
   <body>
     <header>
     <div class="logo">
@@ -74,9 +74,6 @@ padding-left: 70px;
        <ul class="menu">
           <li><a href="/login">로그인</a></li>
           <li><a href="/join">회원가입</a></li> 
-          <li><a href="/mypage">마이 페이지</a></li>
-          <li><a href="/viewed">최근 본 상품</a></li>
-          <li><a href="/cart">장바구니</a></li> 
           <li><a href="/track">주문배송조회</a></li> 
           <li><a href="/cs">고객센터</a></li> 
         </ul> 
@@ -97,20 +94,20 @@ padding-left: 70px;
     </div>
     <div id="img">
       <form action="/join" method="POST">
-          <label>성명</label>
-          <input type="text" name="name">
-          <label>닉네임</label>
-          <input type="text" name="username">
-          <label>아이디</label>
-          <input type="text" name="id">
-          <label>비밀번호</label>
-          <input type="password" name="password">
-          <label>비밀번호 확인</label>
-          <input type="password" name="password2">
-          <label>이메일</label>
-          <input type="text" name="email">
-          <label>주소</label>
-          <input type="text" name="location">
+          <p><label>성명</label>
+          <input type="text" name="name"></p></br>
+          <p><label>닉네임</label>
+          <input type="text" name="username"></p></br>
+          <p><label>아이디</label>
+          <input type="text" name="id"></p></br>
+          <p><label>비밀번호</label>
+          <input type="password" name="password"></p></br>
+          <p><label>비밀번호 확인</label>
+          <input type="password" name="password2"></p></br>
+          <p><label>이메일</label>
+          <input type="text" name="email"></p></br>
+          <p><label>주소</label>
+          <input type="text" name="location"></p></br>
         <button type="submit">회원가입 완료</button>
         <% if(locals.errorMessage) { %>
           <div id="img" role="alert"><%= errorMessage %></div>

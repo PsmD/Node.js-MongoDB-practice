@@ -72,13 +72,20 @@ padding-left: 70px;
       <h1><a href="/home">DGshop</a></h1>
     <nav>
        <ul class="menu">
-          <li><a href="/login">로그인</a></li>
-          <li><a href="/join">회원가입</a></li> 
-          <li><a href="/mypage">마이 페이지</a></li>
+        <%if(loggedIn){%>
+          <li><a href="/logout">로그아웃</a></li>
+          <li><a href="/my-page">마이 페이지</a></li>
           <li><a href="/viewed">최근 본 상품</a></li>
           <li><a href="/cart">장바구니</a></li> 
           <li><a href="/track">주문배송조회</a></li> 
           <li><a href="/cs">고객센터</a></li> 
+          <%}%>
+          <%if(!loggedIn){%>
+          <li><a href="/login">로그인</a></li>
+          <li><a href="/join">회원가입</a></li> 
+          <li><a href="/track">주문배송조회</a></li> 
+          <li><a href="/cs">고객센터</a></li> 
+          <%}%>
         </ul> 
       </nav>
     </header>
