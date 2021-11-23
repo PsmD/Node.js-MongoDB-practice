@@ -1,5 +1,5 @@
+import "dotenv/config";
 import "./db";
-require("dotenv").config();
 import "./models/User";
 import app from "./server";
 
