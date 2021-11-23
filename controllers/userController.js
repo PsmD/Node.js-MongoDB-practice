@@ -51,11 +51,17 @@ export const postLogin = async (req, res) => {
       errorMessage: "잘못된 비밀번호입니다.",
     });
   }
+  req.session.loggedIn = true;
+  req.session.user = user;
   return res.redirect("/");
 };
 export const cart = (req, res) => res.render('cart');
 export const cs = (req, res) => res.render('cs');
-export const mypage = (req, res) => res.render('mypage');
+export const mypage = (req, res) => res.render('my-page');
 export const track = (req, res) => res.render('track');
 export const viewed = (req, res) => res.render('viewed');
 export const home = (req, res) => res.render('home');
+export const logout = (req, res) => {
+  req.session.destroy();
+  return res.redirect("/");
+};
