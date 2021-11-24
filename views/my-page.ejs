@@ -69,7 +69,7 @@ padding-left: 70px;
   <body>
     <header>
     <div class="logo">
-      <h1><a href="/home">DGshop</a></h1>
+      <h1><a href="/">DGshop</a></h1>
     <nav>
        <ul class="menu">
           <li><a href="/logout">로그아웃</a></li>
@@ -95,7 +95,20 @@ padding-left: 70px;
       </ul>
     </div>
     <div id="img">
-<h2>쇼핑 품목 img</h2>
+      <form action="/my-page" method="POST">
+        <p><label>성명</label>
+        <input type="text" name="name" value=<%=loggedInUser.name%>></p></br>
+        <p><label>닉네임</label>
+        <input type="text" name="username" value=<%=loggedInUser.username%>></p></br>
+        <p><label>이메일</label>
+        <input type="text" name="email" value=<%=loggedInUser.email%>></p></br>
+        <p><label>주소</label>
+        <input type="text" name="location" value=<%=loggedInUser.location%>></p></br>
+      <button type="submit">수정 완료</button>
+      <% if(locals.errorMessage) { %>
+        <div id="img" role="alert"><%= errorMessage %></div>
+        <% } %>
+    </form> 
     </div>
   </div>
   </body>
