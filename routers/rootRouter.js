@@ -1,10 +1,12 @@
 import express from "express";
-import { getJoin, postJoin, cart, cs ,getLogin, logout, postLogin, mypage, track, viewed, home } from "../controllers/userController";
+import { getJoin, postJoin, cart, cs ,getLogin, logout, postLogin, getmypage, postmypage, track, viewed, home } from "../controllers/userController";
+import { protectorMiddleware, publicOnlyMiddleware } from "../middlewares";
+
 const rootRouter = express.Router();
 
 rootRouter.get('/', home);
 
-rootRouter.get('/my-page', mypage);
+rootRouter.route('/my-page').all(protectorMiddleware).get(getmypage).post(postmypage);
 
 rootRouter.get('/viewed', viewed);
 
@@ -14,10 +16,10 @@ rootRouter.get('/track', track);
 
 rootRouter.get('/cs', cs);
 
-rootRouter.route("/join").get(getJoin).post(postJoin);
+rootRouter.route("/join").all(publicOnlyMiddleware).get(getJoin).post(postJoin);
 
-rootRouter.route("/login").get(getLogin).post(postLogin);
+rootRouter.route("/login").all(publicOnlyMiddleware).get(getLogin).post(postLogin);
 
-rootRouter.get("/logout", logout);
+rootRouter.get("/logout", protectorMiddleware, logout);
 
 export default rootRouter;
