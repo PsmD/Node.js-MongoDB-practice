@@ -27,7 +27,7 @@ export const postJoin = async (req, res) => {
     });
   };
     await User.create({
-      name, username, id, password, password2, email, location
+      name, username, id, password, email, location
     });
   return res.redirect("/login");
 };
@@ -55,6 +55,34 @@ export const postLogin = async (req, res) => {
   req.session.user = user;
   return res.redirect("/");
 };
+
+export const getmypage = (req, res) => {
+  return res.render("my-page", { pageTitle: "My Page" });
+};
+export const postmypage = async (req, res) => {
+  const {
+    session: {
+      user: { _id },
+    },
+    body: { name, username, id, password, email, location },
+  } = req;
+  const updatedUser = await User.findByIdAndUpdate(
+    _id,
+    {
+      name,
+      username,
+      id,
+      password,
+      email,
+      location,
+    },
+    { new: true }
+  );
+  req.session.user = updatedUser;
+  return res.redirect("/");
+};
+
+
 export const cart = (req, res) => res.render('cart');
 export const cs = (req, res) => res.render('cs');
 export const mypage = (req, res) => res.render('my-page');
