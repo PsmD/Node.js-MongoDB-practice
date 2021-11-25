@@ -1,5 +1,5 @@
 import express from "express";
-import { getJoin, postJoin, cart, cs ,getLogin, logout, postLogin, getmypage, postmypage, track, viewed, home } from "../controllers/userController";
+import { getJoin, postJoin, cart, cs ,getLogin, logout, postLogin, getmypage, getChangePassword, postChangePassword, postmypage, track, viewed, home } from "../controllers/userController";
 import { protectorMiddleware, publicOnlyMiddleware } from "../middlewares";
 
 const rootRouter = express.Router();
@@ -15,6 +15,8 @@ rootRouter.get('/cart', cart);
 rootRouter.get('/track', track);
 
 rootRouter.get('/cs', cs);
+
+rootRouter.route("/change-password").all(protectorMiddleware).get(getChangePassword).post(postChangePassword);
 
 rootRouter.route("/join").all(publicOnlyMiddleware).get(getJoin).post(postJoin);
 
