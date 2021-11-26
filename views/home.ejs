@@ -64,7 +64,15 @@ grid-template-columns: 150px 1fr;
 padding-top: 100px;
 padding-left: 70px;
 }
-      </style>
+#img ul li{
+  width: 200px; 
+  height: 200px;
+}
+.imgs {
+    max-width: 200px;
+    max-height: 200px;
+}
+</style>
   </head>
   <body>
     <header>
@@ -103,7 +111,16 @@ padding-left: 70px;
       </ul>
     </div>
     <div id="img">
-<h2>쇼핑 품목 img</h2>
+      <ul>
+        <% images.forEach(function(image){ %>
+          <% var imgpath = '/'+ image.fileUrl %> 
+          <a href=""> 
+            <img class="imgs" src= "<%= imgpath %>" > 
+            </a>
+           <li> 제목:<%= image.title %> 설명:<%= image.description %></li>
+        <% }); %> 
+       </ul>
+       <a href="/upload">업로드하기</a>
     </div>
   </div>
   </body>
