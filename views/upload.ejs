@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <title>DGshop</title>
+    <style>
+      *{margin: 0; padding: 0;}
+a:hover{color:#ff0000;}
+li{
+list-style:none;
+}
+a{
+text-decoration:none;
+}
+.logo{
+width: 1170px;
+margin: 0 auto;
+}
+.clearfix{
+content:'';
+display:block;
+clear:both;
+}
+header{
+height: 75px;
+border-bottom: 2px solid gray;
+position: fixed;
+width: 100%;
+z-index: 9999;
+top: 0;
+left: 0;
+}
+h1{ 
+line-height: 75px;
+float:left;
+}
+.menu{
+float:right;
+}
+.menu li{
+float:left;
+}
+.menu a{
+font:bold 12px Dotum;
+line-height:75px;
+padding:0 15px;
+display:block;
+}
+.category{
+margin-top: 75px;
+width:150px;
+border-right: 2px solid gray;
+padding:20px;
+font:bold 20px Dotum; 
+}
+.category ul li{
+line-height: 50px;
+}
+#grid{
+display:grid;
+grid-template-columns: 150px 1fr;
+}
+#img{
+padding-top: 100px;
+padding-left: 70px;
+}
+      </style>
+  </head>
+  <body>
+    <header>
+    <div class="logo">
+      <h1><a href="/">DGshop</a></h1>
+    <nav>
+       <ul class="menu">
+        <%if(loggedIn){%>
+          <li><a href="/logout">로그아웃</a></li>
+          <li><a href="/my-page">마이 페이지</a></li>
+          <li><a href="/viewed">최근 본 상품</a></li>
+          <li><a href="/cart">장바구니</a></li> 
+          <li><a href="/track">주문배송조회</a></li> 
+          <li><a href="/cs">고객센터</a></li> 
+          <%}%>
+          <%if(!loggedIn){%>
+          <li><a href="/login">로그인</a></li>
+          <li><a href="/join">회원가입</a></li> 
+          <li><a href="/track">주문배송조회</a></li> 
+          <li><a href="/cs">고객센터</a></li> 
+          <%}%>
+        </ul> 
+      </nav>
+    </header>
+    </div>
+    <div id="grid">
+    <div class="category">
+      <ul>
+          <li><a>상의</a></li>
+          <li><a>하의</a></li> 
+          <li><a>속옷</a></li>
+          <li><a>모자</a></li>
+          <li><a>액세서리</a></li> 
+          <li><a>벨트</a></li> 
+          <li><a>신발</a></li> 
+      </ul>
+    </div>
+    <div id="img">
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" accept="image/*" id="image" name="image">
+            <input type="text" placeholder="제목" name="title">
+            <input type="text" placeholder="설명" name="description">
+            <input type="submit" value="업로드">
+            <% if(locals.errorMessage) { %>
+                <div id="img" role="alert"><%= errorMessage %></div>
+                <% } %>
+        </form>
+    </div>
+  </div>
+  </body>
+</html>
+
