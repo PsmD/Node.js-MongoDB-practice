@@ -17,6 +17,7 @@ app.use(
     })
   );
 app.use(localsMiddleware);
+app.use("/uploads", express.static("uploads"));
 app.use("/", rootRouter);
 
 export default app;
